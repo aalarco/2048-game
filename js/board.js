@@ -21,8 +21,6 @@ class Board {
 
 
     drawNumber() {
-        //let cellWidth = this.width / this.matrix[0].length - 1
-        //let cellHeight = this.height / this.matrix.length - 1
         for (let i = 0; i < this.matrix.length; i++) {
             for (let j = 0; j < this.matrix[i].length; j++) {
                 switch (this.matrix[i][j]) {
@@ -37,19 +35,12 @@ class Board {
                         this.ctx.fillStyle = '#549354'
                         this.ctx.fillRect(j * 150, i * 150, 150, 150)
 
-                        // this.ctx.font = "50px sans-serif"
-                        // this.ctx.fillStyle = "White"
-                        // this.ctx.fillText(this.matrix[i][j], 150 * j + 50, 150 * i + 100)
-
                         break;
+
                     case 8:
                         this.ctx.fillStyle = '#71C671'
                         this.ctx.fillRect(j * 150, i * 150, 150, 150)
 
-                        // this.ctx.font = "50px sans-serif"
-                        // this.ctx.fillStyle = "White"
-                        // this.ctx.fillText(this.matrix[i][j], 150 * j + 50, 150 * i + 100)
-                        
                         break;
                     case 16:
                         this.ctx.fillStyle = '#284628'
@@ -160,11 +151,11 @@ class Board {
 
     moveOneRight() {
 
-        for (let i = 0; i < this.matrix.length; ++i) { //iterate down rows
+        for (let i = 0; i < this.matrix.length; ++i) { 
             let counter = 0;
-            while (counter < 3) { //do this 3 times 
-                for (let j = this.matrix[i].length; j >= 0; --j) { //iterate across columns
-                    if (this.matrix[i][j + 1] == 0 && this.matrix[i][j] != 0) { //move right if empty
+            while (counter < 3) {  
+                for (let j = this.matrix[i].length; j >= 0; --j) { 
+                    if (this.matrix[i][j + 1] == 0 && this.matrix[i][j] != 0) { 
                         this.matrix[i][j + 1] = this.matrix[i][j];
                         this.matrix[i][j] = 0;
 
@@ -194,11 +185,11 @@ class Board {
     }
 
     moveOneDown() {
-        for (let i = 0; i < this.matrix.length - 1; ++i) { //iterate down rows
+        for (let i = 0; i < this.matrix.length - 1; ++i) { 
             let counter = 0;
-            while (counter < 3) { //do this 3 times 
-                for (let j = this.matrix[i].length; j >= 0; --j) { //iterate across columns
-                    if (this.matrix[i + 1][j] == 0 && this.matrix[i][j] != 0) { //move right if empty
+            while (counter < 3) { 
+                for (let j = this.matrix[i].length; j >= 0; --j) { 
+                    if (this.matrix[i + 1][j] == 0 && this.matrix[i][j] != 0) { 
                         this.matrix[i + 1][j] = this.matrix[i][j];
                         this.matrix[i][j] = 0;
                     }
@@ -225,8 +216,8 @@ class Board {
     }
 
     combinerRight() {
-        for (let i = 0; i <= this.matrix.length - 1; ++i) { //iterate down rows
-            for (let j = this.matrix[i].length; j >= 0; --j) { //iterate across columns
+        for (let i = 0; i <= this.matrix.length - 1; ++i) { 
+            for (let j = this.matrix[i].length; j >= 0; --j) { 
                 if (this.matrix[i][j] == this.matrix[i][j - 1]) {
                     this.matrix[i][j] *= 2;
                     this.matrix[i][j - 1] = 0;
@@ -251,7 +242,6 @@ class Board {
         for (let i = this.matrix.length - 1; i > 0; i--) {
             for (let j = 0; j < this.matrix[i].length; j++) {
                 if (this.matrix[i][j] == this.matrix[i - 1][j]) {
-                    //console.log(this.matrix[i][j], this.matrix[i - 1][j])
                     this.matrix[i - 1][j] *= 2
                     this.matrix[i][j] = 0
                 }
@@ -293,15 +283,6 @@ class Board {
     }
 
 
-
-    // addTile() {
-
-    //     for(let i = 0; i < this.matrix.length; i++){
-    //             if (this.matix[i][j] == 0){
-
-    //             }
-    //     }
-    // }
 
     addRandomTile() {
         if (this.cellsAvailable()) {

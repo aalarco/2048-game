@@ -34,47 +34,9 @@ const Game = {
         this.board.drawNumber()
     },
 
-    //document.getElementById("new-game").onclick
-
+    
 
 }
 
-
-
-//var arr = [1,2,2,4,0]
-
-/*function move(arr) {
-    let newArr = []
-    for(let i = arr.length -1; i >= 0; i--){
-        if(arr[i] === 0){
-
-        } else if(arr[i] == arr[i-1]){
-            newArr.unshift(arr[i] + arr[i-1])
-        } else{
-            newArr.unshift(arr[i])
-        }
-    }
-    console.log(newArr)
-}*/
-
-
-// var cols = 4
-// var rows = 4
-
-
-// function draw(){
-//     background(0)
-
-
-//     for(let i = 0; i < cols; i++){
-//         for(let j = 0; j < rows; i++){
-//             let width = i*100
-//             let height = j*100
-
-//             stroke(0)
-//             rect(width, height, 100, 100)
-//         }
-//     }
-// }
 
 
