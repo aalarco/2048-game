@@ -5,9 +5,9 @@ class Board {
         this.height = h
         this.matrix = [
             [0, 0, 0, 2],
-            [2, 0, 0, 2],
             [0, 0, 0, 0],
-            [0, 2, 0, 4]
+            [0, 2, 0, 0],
+            [0, 0, 0, 4]
         ]
 
         this.setEventListener()
@@ -21,27 +21,19 @@ class Board {
 
 
     drawNumber() {
-        console.log("entraaa")
-        let cellWidth = this.width / this.matrix[0].length - 1
-        let cellHeight = this.height / this.matrix.length - 1
+        //let cellWidth = this.width / this.matrix[0].length - 1
+        //let cellHeight = this.height / this.matrix.length - 1
         for (let i = 0; i < this.matrix.length; i++) {
             for (let j = 0; j < this.matrix[i].length; j++) {
                 switch (this.matrix[i][j]) {
                     case 2:
-                        console.log("CASO 2")
-                        console.log(i, j)
                         this.ctx.fillStyle = '#B5CFB5'
                         this.ctx.fillRect(j * 150, i * 150, 150, 150)
-
-                        // this.ctx.font = "50px sans-serif"
-                        // this.ctx.fillStyle = "White"
-                        // this.ctx.fillText(this.matrix[i][j], 150 * j + 50, 150 * i + 100)
+                        
 
                         break;
-                    case 4:
-                        console.log("CASO 4")
-                        console.log(i, j)
-
+                   
+                        case 4:
                         this.ctx.fillStyle = '#549354'
                         this.ctx.fillRect(j * 150, i * 150, 150, 150)
 
@@ -51,41 +43,49 @@ class Board {
 
                         break;
                     case 8:
-                        console.log("CASO 8")
-                        console.log(i, j)
-
                         this.ctx.fillStyle = '#71C671'
                         this.ctx.fillRect(j * 150, i * 150, 150, 150)
 
                         // this.ctx.font = "50px sans-serif"
                         // this.ctx.fillStyle = "White"
                         // this.ctx.fillText(this.matrix[i][j], 150 * j + 50, 150 * i + 100)
-
+                        
                         break;
                     case 16:
-                        console.log("CASO 16")
                         this.ctx.fillStyle = '#284628'
                         this.ctx.fillRect(j * 150, i * 150, 150, 150)
-
+                        
+                        
                         break;
-                    // case 32:
-                    //     color = '#EE4A0F'
-                    //     break;
-                    // case 64:
-                    //     color = '#EE0F0F'
-                    //     break;
-                    // case 128:
-                    //     color = '#E4D505'
-                    // case 256:
-                    //     color = '#EDED62'
-                    //     break;
-                    // case 512:
-                    //     color = '#B4C953'
-                    // case 1024:
-                    //     color = '#E5FF71'
+                    case 32:
+                        this.ctx.fillStyle = '#4CAEB5'
+                        this.ctx.fillRect(j * 150, i * 150, 150, 150)
+                        
+                        break;
+                    case 64:
+                        this.ctx.fillStyle = '#2C6568'
+                        this.ctx.fillRect(j * 150, i * 150, 150, 150)
+                        break;
+                    case 128:
+                        this.ctx.fillStyle = '#F38240'
+                        this.ctx.fillRect(j * 150, i * 150, 150, 150)
+                        break;
+                    case 256:
+                        this.ctx.fillStyle = '#E3A03B'
+                        this.ctx.fillRect(j * 150, i * 150, 150, 150)
+                        break;
+                    case 512:
+                        this.ctx.fillStyle = '#E7636C'
+                        this.ctx.fillRect(j * 150, i * 150, 150, 150)
+                        break;
+                    
+                    case 1024:
+                        this.ctx.fillStyle = '#B7222C'
+                        this.ctx.fillRect(j * 150, i * 150, 150, 150)
+                        break
+    
                     default:
-                        console.log("DEFAULT")
-                        this.ctx.fillStyle = 'red'
+                        this.ctx.fillStyle = '#A8A8A8'
                         this.ctx.fillRect(j * 150, i * 150, 150, 150)
 
                         break
@@ -94,7 +94,11 @@ class Board {
 
                 this.ctx.font = "50px sans-serif"
                 this.ctx.fillStyle = "White"
-                this.ctx.fillText(this.matrix[i][j], 150 * j + 50, 150 * i + 100)
+                if (this.matrix[i][j] == 0) {
+
+                } else {
+                    this.ctx.fillText(this.matrix[i][j], 150 * j + 50, 150 * i + 100)
+                }
             }
         }
     }
@@ -109,31 +113,23 @@ class Board {
                 case 38:
                     this.goUp()
                     this.findEmptySpaces()
-
+                   
                     break
                 case 39:
                     this.goRight()
                     this.findEmptySpaces()
-
+                   
                     break
                 case 40:
                     this.goDown()
                     this.findEmptySpaces()
-
+                   
                     break
             }
         }
     }
 
 
-    // let arr = [2, 0, 2, 4]
-
-    // //declaramos nuevo array
-    // //recorremos el array 
-    // //if 0 nada
-    // //if number push/unshift
-    // //rellenar con nulls
-    // //if coincidencia añadir sumatorio y saltar una vuelta
 
     goRight() {
         this.moveOneRight()
@@ -171,17 +167,6 @@ class Board {
                     if (this.matrix[i][j + 1] == 0 && this.matrix[i][j] != 0) { //move right if empty
                         this.matrix[i][j + 1] = this.matrix[i][j];
                         this.matrix[i][j] = 0;
-
-                        // if (this.matrix[i][j] === 2) {
-                        //     this.ctx.fillStyle = "red"
-                        //     this.ctx.fillRect(j * 150, i * 150, 150, 150)
-                        // } else if (this.matrix[i][j] === 0) {
-                        //     this.ctx.fillStyle = "green"
-                        //     this.ctx.fillRect(j * 150, i * 150, 150, 150)
-                        // } else if (his.matrix[i][j] === 0) {
-                        //     this.ctx.fillStyle = "orange"
-                        //     this.ctx.fillRect(j * 150, i * 150, 150, 150)
-                        // }
 
 
                     }
@@ -294,9 +279,16 @@ class Board {
         this.matrix.forEach((row, idx) => {
             let rowNum = idx
             let colNum = row.indexOf(0)
+            if(interruptor == false){
 
-            this.matrix[rowNum][colNum] = 2
-            if (row.indexOf(0) == -1) { }
+                if (row.indexOf(0) != -1) { 
+                    
+                    this.matrix[rowNum][colNum] = 2
+                    interruptor = true
+                    
+                }                     
+                
+            } 
         })
     }
 

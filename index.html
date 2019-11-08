@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>The Game of Boxes</title>
+    <link rel="stylesheet" href="styles.css">   
+    <title>Game of Boxes</title>
 </head>
 
 <body>
-    <div id="boards">
-
+    <h1>Game of Boxes</h1>
+    <div class="juego">
+        <div id="boards">
+            <p><strong>Como jugar:</strong> Usa las flechas para mover todas las fichas. Si dos fichas tienen el mismo valor se fusionaran creando una ficha del doble de valor. </p>
+            <div class="box-arrows"><img class="arrows" src="./images/keyboard.png"></div>
+           
+        </div>
+        <canvas id="canvas"></canvas>
     </div>
-    <canvas id="canvas"></canvas>
     <script src="./js/board.js"></script>
     <script type="text/javascript" src="./js/game.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>

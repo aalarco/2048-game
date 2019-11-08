@@ -1,4 +1,40 @@
+body{
+    background-color: #5F5F5F;
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    color: #e9e9e9
+}
+.juego {
+    display: flex
+}
+p {
+    font-size: 24px;
+   padding: 20px 100px;
+    text-align: center
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+    padding: 50px 0;
+}
+
 #canvas {
-    border: 1px solid red;
-    background-color: black
+    height: 800px;
+    width: 800px;
+  
+    
+}
+.box-arrows {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px
+}
+.arrows{
+    height: 150px;
+
+}
+
+#boards {
+    padding-top: 30px;
 }
