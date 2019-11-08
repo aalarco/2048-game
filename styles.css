@@ -1,4 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
+    overflow: hidden;
+    height: 100%;
     background-color: #5F5F5F;
     font-family: Arial, Helvetica, sans-serif;
     float: left;
@@ -37,4 +43,21 @@ h1{
 
 #boards {
     padding-top: 30px;
+}
+
+.start-button {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px
+}
+
+.new-game {
+    font-size: 30px;
+    background-color: #982329;
+    color: #fff;
+    padding: 20px 40px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 5px;
+    margin-bottom: 20px
 }

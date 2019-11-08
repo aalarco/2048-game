@@ -32,9 +32,9 @@ const Game = {
     drawAll() {
         this.board.draw()
         this.board.drawNumber()
-    }
+    },
 
-
+    //document.getElementById("new-game").onclick
 
 
 }
